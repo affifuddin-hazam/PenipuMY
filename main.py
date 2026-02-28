@@ -234,8 +234,8 @@ def main() -> None:
                 return await start_report_update(update, context, report_id)
             except (ValueError, IndexError):
                 pass
-        # Not an update deep link — fall through to normal start
-        return ConversationHandler.END
+        # Not an update deep link — call normal start (update is consumed by this handler)
+        return await start(update, context)
 
     update_conv_handler = ConversationHandler(
         entry_points=[
@@ -287,7 +287,13 @@ def main() -> None:
         CallbackQueryHandler(show_statistics, pattern="^main_statistics$")
     )
 
-    
+
+    # 7b. Error handler — log all unhandled exceptions
+    async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
+        logger.error("Exception while handling an update:", exc_info=context.error)
+
+    application.add_error_handler(error_handler)
+
     # 8. Setup JobQueue — auto-archive stale NEEDS_INFO reports every hour
     job_queue = application.job_queue
     job_queue.run_repeating(auto_archive_needs_info, interval=3600, first=60)
