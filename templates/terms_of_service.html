@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - PenipuMY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        .auth-nav {
+            background: white;
+            padding: 16px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+            margin-bottom: 40px;
+        }
+
+        .auth-nav a {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #0f172a;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        .page-header {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            padding: 40px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .page-header .subtitle {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            padding: 40px;
+            margin-bottom: 24px;
+        }
+
+        .content-card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+            margin-top: 24px;
+        }
+
+        .content-card h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .content-card p {
+            color: #475569;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .content-card ul {
+            color: #475569;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+            margin-left: 20px;
+        }
+
+        .content-card ul li {
+            margin-bottom: 8px;
+        }
+
+        .content-card strong {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .content-card a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .content-card a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: #334155;
+        }
+
+        .warning-box {
+            background: #fef2f2;
+            border-left: 4px solid #dc2626;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .warning-box p {
+            margin: 0;
+            color: #7f1d1d;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 28px 24px;
+            }
+
+            .page-header h1 {
+                font-size: 24px;
+            }
+
+            .content-card {
+                padding: 28px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="auth-nav">
+        <div class="container">
+            <a href="{{ url_for('index') }}">PenipuMY</a>
+        </div>
+    </nav>
+
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h1>Terms of Service</h1>
+            <p class="subtitle">Last updated: February 13, 2026</p>
+        </div>
+
+        <div class="content-card">
+            <div class="highlight-box" style="margin-top: 0;">
+                <p><i class="fa-solid fa-scale-balanced me-2"></i><strong>Important:</strong> By accessing or using
+                    PenipuMY, you agree to be bound by these Terms of Service. If you do not agree, please do not use
+                    our platform.</p>
+            </div>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>Welcome to PenipuMY, a community-driven platform dedicated to protecting Malaysians from online fraud.
+                These Terms of Service ("Terms") govern your use of our website, services, and features. By creating an
+                account or using our services, you acknowledge that you have read, understood, and agree to these Terms.
+            </p>
+
+            <h2>2. Eligibility</h2>
+            <p>To use PenipuMY, you must:</p>
+            <ul>
+                <li>Be at least 13 years of age</li>
+                <li>Provide accurate and complete registration information</li>
+                <li>Maintain the security of your account credentials</li>
+                <li>Comply with all applicable laws and regulations</li>
+            </ul>
+
+            <h2>3. User Accounts</h2>
+
+            <h3>Account Creation</h3>
+            <p>You may create an account using:</p>
+            <ul>
+                <li>Email and password</li>
+                <li>Google OAuth</li>
+                <li>Telegram authentication</li>
+            </ul>
+
+            <h3>Account Security</h3>
+            <p>You are responsible for:</p>
+            <ul>
+                <li>Maintaining the confidentiality of your account credentials</li>
+                <li>All activities that occur under your account</li>
+                <li>Notifying us immediately of any unauthorized access</li>
+            </ul>
+
+            <h2>4. User Conduct and Responsibilities</h2>
+
+            <h3>Permitted Use</h3>
+            <p>You may use PenipuMY to:</p>
+            <ul>
+                <li>Search and verify potential scammers</li>
+                <li>Submit legitimate scam reports with supporting evidence</li>
+                <li>Contribute community input and collaborate with others</li>
+                <li>Help protect the Malaysian community from fraud</li>
+            </ul>
+
+            <h3>Prohibited Conduct</h3>
+            <p>You must NOT:</p>
+            <ul>
+                <li>Submit false, misleading, or defamatory reports</li>
+                <li>Harass, threaten, or abuse other users</li>
+                <li>Impersonate any person or entity</li>
+                <li>Upload malicious code, viruses, or harmful content</li>
+                <li>Attempt to bypass security measures or access restrictions</li>
+                <li>Scrape, harvest, or collect data without permission</li>
+                <li>Use the platform for any illegal purposes</li>
+                <li>Spam or abuse the submission system</li>
+            </ul>
+
+            <div class="warning-box">
+                <p><i class="fa-solid fa-triangle-exclamation me-2"></i><strong>Warning:</strong> Submitting false
+                    reports or engaging in malicious activities may result in account suspension, legal action, and
+                    reporting to authorities.</p>
+            </div>
+
+            <h2>5. Content Submission and Reports</h2>
+
+            <h3>Accuracy Requirements</h3>
+            <p>When submitting scam reports, you must:</p>
+            <ul>
+                <li>Provide truthful and accurate information</li>
+                <li>Include genuine evidence (screenshots, documents)</li>
+                <li>Avoid exaggeration or fabrication</li>
+                <li>Report only genuine fraud experiences</li>
+            </ul>
+
+            <h3>Content Ownership</h3>
+            <p>By submitting content to PenipuMY:</p>
+            <ul>
+                <li>You retain ownership of your original content</li>
+                <li>You grant us a worldwide, non-exclusive license to use, display, and distribute your content</li>
+                <li>You warrant that you have the right to share the submitted content</li>
+                <li>You understand that reports may be publicly displayed to protect the community</li>
+            </ul>
+
+            <h3>Content Moderation</h3>
+            <p>We reserve the right to:</p>
+            <ul>
+                <li>Review, verify, and moderate all submitted reports</li>
+                <li>Remove or reject reports that violate these Terms</li>
+                <li>Delete content that is illegal, harmful, or inappropriate</li>
+                <li>Take action against users who violate these Terms</li>
+            </ul>
+
+            <h2>6. Intellectual Property</h2>
+            <p>All content, features, and functionality of PenipuMY (including but not limited to text, graphics, logos,
+                icons, software, and design) are owned by PenipuMY or its licensors and protected by copyright,
+                trademark, and other intellectual property laws.</p>
+
+            <h2>7. Third-Party Services</h2>
+            <p>PenipuMY integrates with external services including:</p>
+            <ul>
+                <li><strong>SemakMule (PDRM):</strong> Police report verification</li>
+                <li><strong>Truecaller:</strong> Phone number verification</li>
+                <li><strong>ToyyibPay:</strong> Payment processing for donations</li>
+            </ul>
+            <p>Your use of these services is subject to their respective terms and policies.</p>
+
+            <h2>8. Disclaimers and Limitations</h2>
+
+            <h3>No Warranty</h3>
+            <p>PenipuMY is provided "AS IS" and "AS AVAILABLE" without warranties of any kind. We do not guarantee:</p>
+            <ul>
+                <li>The accuracy or completeness of scam reports</li>
+                <li>Uninterrupted or error-free service</li>
+                <li>Prevention of all fraud or scams</li>
+                <li>Verification of all submitted information</li>
+            </ul>
+
+            <div class="warning-box">
+                <p><i class="fa-solid fa-shield-halved me-2"></i><strong>Important:</strong> PenipuMY is a
+                    community-driven platform. While we strive for accuracy, we cannot guarantee the validity of all
+                    reports. Always exercise caution and verify information independently.</p>
+            </div>
+
+            <h3>Limitation of Liability</h3>
+            <p>To the fullest extent permitted by law, PenipuMY and its operators shall not be liable for:</p>
+            <ul>
+                <li>Any indirect, incidental, or consequential damages</li>
+                <li>Loss of profits, data, or opportunities</li>
+                <li>Damages resulting from use or inability to use our services</li>
+                <li>Actions taken based on information found on our platform</li>
+            </ul>
+
+            <h2>9. Indemnification</h2>
+            <p>You agree to indemnify and hold harmless PenipuMY, its operators, and affiliates from any claims,
+                damages, or expenses arising from:</p>
+            <ul>
+                <li>Your violation of these Terms</li>
+                <li>Your submission of false or defamatory content</li>
+                <li>Your violation of any law or rights of third parties</li>
+            </ul>
+
+            <h2>10. User Data and Privacy</h2>
+            <p>Your privacy is important to us. Please review our <a href="{{ url_for('privacy_policy') }}">Privacy
+                    Policy</a> to understand how we collect, use, and protect your information.</p>
+
+            <h2>11. Community Donations</h2>
+            <p>Users may choose to support submitters through voluntary donations:</p>
+            <ul>
+                <li>Donations are processed securely through ToyyibPay</li>
+                <li>Contributors may earn credits and level up based on community support</li>
+                <li>All transactions are subject to ToyyibPay's terms and fees</li>
+                <li>Donations are non-refundable unless required by law</li>
+            </ul>
+
+            <h2>12. Termination</h2>
+            <p>We reserve the right to:</p>
+            <ul>
+                <li>Suspend or terminate your account for violations of these Terms</li>
+                <li>Remove content that violates our policies</li>
+                <li>Discontinue or modify our services at any time</li>
+                <li>Refuse service to anyone for any lawful reason</li>
+            </ul>
+
+            <h2>13. Governing Law</h2>
+            <p>These Terms shall be governed by and construed in accordance with the laws of Malaysia, without regard to
+                its conflict of law provisions.</p>
+
+            <h2>14. Dispute Resolution</h2>
+            <p>Any disputes arising from these Terms or your use of PenipuMY shall be resolved through good-faith
+                negotiations. If negotiations fail, disputes shall be submitted to the competent courts of Malaysia.</p>
+
+            <h2>15. Changes to Terms</h2>
+            <p>We reserve the right to modify these Terms at any time. We will notify users of material changes by:</p>
+            <ul>
+                <li>Posting the updated Terms on this page</li>
+                <li>Updating the "Last updated" date</li>
+                <li>Sending email notifications (for significant changes)</li>
+            </ul>
+            <p>Your continued use of PenipuMY after changes constitutes acceptance of the updated Terms.</p>
+
+            <h2>16. Severability</h2>
+            <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall
+                remain in full force and effect.</p>
+
+            <h2>17. Contact Information</h2>
+            <p>If you have questions about these Terms, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:support@penipu.my">support@penipu.my</a></li>
+                <li><strong>Location:</strong> Malaysia 🇲🇾</li>
+            </ul>
+
+            <div class="highlight-box" style="margin-top: 32px;">
+                <p><i class="fa-solid fa-handshake me-2"></i>Thank you for being part of PenipuMY. Together, we're
+                    building a safer digital community for all Malaysians!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

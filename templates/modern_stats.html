@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Stats Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* (CSS KEKAL SAMA — TAK SENTUH) */
+        :root {
+            --primary-bg: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-secondary: #6b7280;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-purple: #8b5cf6;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--primary-bg); display: flex; justify-content: center; padding: 20px; }
+        .dashboard-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; max-width: 1200px; }
+        .stat-card { background-color: var(--card-bg); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,.1); border: 1px solid rgba(0,0,0,.05); display: flex; flex-direction: column; justify-content: space-between; }
+        .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+        .card-title { font-size: .875rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .05em; }
+        .icon-box { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+        .stat-value { font-size: 2rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+        .stat-desc { font-size: .875rem; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; }
+        .theme-blue .icon-box { background-color: rgba(59,130,246,.1); color: var(--accent-blue); }
+        .theme-purple .icon-box { background-color: rgba(139,92,246,.1); color: var(--accent-purple); }
+        .theme-red .icon-box { background-color: rgba(239,68,68,.1); color: var(--accent-red); }
+        .growth-badge { background-color: #ecfdf5; color: var(--accent-green); padding: 4px 10px; border-radius: 999px; font-size: .75rem; font-weight: 600; }
+        .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px; }
+        .mini-stat { background-color: #f9fafb; padding: 12px; border-radius: 8px; }
+        .mini-label { font-size: .75rem; color: var(--text-secondary); margin-bottom: 4px; }
+        .mini-value { font-size: 1.1rem; font-weight: 700; color: var(--text-main); }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <!-- USERS -->
+    <div class="stat-card theme-blue">
+        <div>
+            <div class="card-header">
+                <span class="card-title">Total Users</span>
+                <div class="icon-box"><i class="fa-solid fa-users"></i></div>
+            </div>
+
+            <div class="stat-value">{{ stats.total_users }}</div>
+
+            <div class="stat-desc">
+                <span class="growth-badge">
+                    {{ stats.active_base_percent }}%
+                </span>
+                <span>Active Base (30 Days)</span>
+            </div>
+
+            <hr style="border:0;border-top:1px solid #eee;margin:15px 0;">
+
+            <div style="display:flex;justify-content:space-between;">
+                <div>
+                    <div style="font-size:.75rem;color:#6b7280;">New Today</div>
+                    <div style="font-weight:700;">+{{ stats.new_users_today }}</div>
+                </div>
+                <div style="text-align:right;">
+                    <div style="font-size:.75rem;color:#6b7280;">New Yesterday</div>
+                    <div style="font-weight:700;">+{{ stats.new_users_yesterday }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATABASE -->
+    <div class="stat-card theme-purple">
+        <div>
+            <div class="card-header">
+                <span class="card-title">Database</span>
+                <div class="icon-box"><i class="fa-solid fa-database"></i></div>
+            </div>
+
+            <div class="data-grid">
+                <div class="mini-stat">
+                    <div class="mini-label">Reports</div>
+                    <div class="mini-value">{{ stats.total_reports }}</div>
+                </div>
+                <div class="mini-stat">
+                    <div class="mini-label">Bank Accounts</div>
+                    <div class="mini-value">{{ stats.total_banks }}</div>
+                </div>
+                <div class="mini-stat">
+                    <div class="mini-label">Phone No.</div>
+                    <div class="mini-value">{{ stats.total_phones }}</div>
+                </div>
+                <div class="mini-stat">
+                    <div class="mini-label">Social Media</div>
+                    <div class="mini-value">{{ stats.total_socials }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOSSES -->
+    <div class="stat-card theme-red">
+        <div>
+            <div class="card-header">
+                <span class="card-title">Total Monetary Loss</span>
+                <div class="icon-box"><i class="fa-solid fa-sack-dollar"></i></div>
+            </div>
+
+            <div class="stat-value" style="color:var(--accent-red);font-size:1.8rem;">
+                RM {{ stats.total_verified_loss }}
+            </div>
+
+            <div class="stat-desc">
+                <i class="fa-solid fa-circle-exclamation" style="color:var(--accent-red);"></i>
+                <span>Cumulative verified losses</span>
+            </div>
+        </div>
+
+        <div style="margin-top:auto;padding-top:20px;font-size:.85rem;color:var(--text-secondary);border-top:1px dashed #fee2e2;">
+            Highest single loss:
+            <b>RM {{ stats.highest_single_loss }}</b>
+        </div>
+    </div>
+
+    <!-- API STATUS -->
+    <div class="stat-card" style="grid-column: 1 / -1;">
+        <div class="card-header">
+            <span class="card-title">API Status</span>
+            <div class="icon-box" style="background-color: rgba(16,185,129,.1); color: #10b981;">
+                <i class="fa-solid fa-plug"></i>
+            </div>
+        </div>
+        <div style="display: flex; gap: 40px; align-items: center;">
+            <!-- Truecaller -->
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width:12px;height:12px;border-radius:50%;background:{{ stats.tc_status_color }};flex-shrink:0;"></div>
+                <div>
+                    <div style="font-weight:700;font-size:.95rem;">Truecaller</div>
+                    <div style="font-size:.8rem;color:var(--text-secondary);">{{ stats.tc_status }}</div>
+                </div>
+            </div>
+            <!-- Divider -->
+            <div style="width:1px;height:36px;background:#e5e7eb;"></div>
+            <!-- SemakMule -->
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width:12px;height:12px;border-radius:50%;background:{{ stats.sm_status_color }};flex-shrink:0;"></div>
+                <div>
+                    <div style="font-weight:700;font-size:.95rem;">SemakMule PDRM</div>
+                    <div style="font-size:.8rem;color:var(--text-secondary);">{{ stats.sm_status }}</div>
+                </div>
+            </div>
+            <!-- Divider -->
+            <div style="width:1px;height:36px;background:#e5e7eb;"></div>
+            <!-- TC Cache -->
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width:36px;height:36px;border-radius:8px;background:rgba(59,130,246,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-magnifying-glass" style="color:var(--accent-blue);font-size:.85rem;"></i>
+                </div>
+                <div>
+                    <div style="font-weight:700;font-size:.95rem;">Truecaller Cache</div>
+                    <div style="font-size:.8rem;color:var(--text-secondary);">{{ stats.tc_cache_count }} results cached</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<title>Statistik PenipuMY</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+:root{
+    --bg:#0f172a;
+    --card:#020617;
+    --border:#1e293b;
+    --text:#e5e7eb;
+    --muted:#94a3b8;
+    --cyan:#22d3ee;
+    --purple:#a78bfa;
+    --green:#34d399;
+}
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:Inter,system-ui,Segoe UI,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+.wrapper{
+    width:920px;
+    height:520px;
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:16px;
+}
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+}
+.card-header{
+    margin-bottom:12px;
+}
+h2{
+    margin:0;
+    font-size:14px;
+    font-weight:600;
+    color:var(--muted);
+}
+.stat{
+    padding:14px 16px;
+    background:#020617;
+    border:1px solid var(--border);
+    border-radius:12px;
+}
+.stat small{
+    color:var(--muted);
+    font-size:11px;
+}
+.stat h1{
+    margin:4px 0 0;
+    font-size:24px;
+}
+.left{
+    gap:12px;
+}
+.center{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+
+    <!-- LEFT -->
+    <div class="card left">
+        <div class="card-header">
+            <h2>Ringkasan Sistem</h2>
+        </div>
+
+        <div class="stat">
+            <small>Jumlah Pengguna</small>
+            <h1>{{TOTAL_USERS}}</h1>
+        </div>
+
+        <div class="stat">
+            <small>Jumlah Laporan</small>
+            <h1>{{TOTAL_REPORTS}}</h1>
+        </div>
+
+        <div class="stat">
+            <small>Jumlah Penipu Dilaporkan</small>
+            <h1>{{VERIFIED_PROFILES}}</h1>
+        </div>
+
+        <div class="stat">
+            <small>Jumlah Kerugian Dilaporkan</small>
+            <h1>RM {{TOTAL_LOSS}}</h1>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="card">
+        <div class="card-header">
+            <h2>Pecahan Penipu Dilaporkan</h2>
+        </div>
+
+        <div class="center">
+            <div style="width:85%">
+                <canvas id="identityChart" height="260"></canvas>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+/* === DONUT LABEL PLUGIN === */
+const donutLabelPlugin = {
+    id:"donutLabel",
+    afterDraw(chart){
+        const {ctx} = chart;
+        const meta = chart.getDatasetMeta(0);
+        const data = chart.data.datasets[0].data;
+        const total = data.reduce((a,b)=>a+b,0);
+
+        ctx.save();
+
+        /* angka atas segment */
+        meta.data.forEach((arc,i)=>{
+            const angle=(arc.startAngle+arc.endAngle)/2;
+            const r=(arc.innerRadius+arc.outerRadius)/2;
+            const x=arc.x+Math.cos(angle)*r;
+            const y=arc.y+Math.sin(angle)*r;
+
+            ctx.fillStyle="#0f172a";
+            ctx.font="600 11px Inter,sans-serif";
+            ctx.textAlign="center";
+            ctx.textBaseline="middle";
+            ctx.fillText(data[i],x,y);
+        });
+
+        /* jumlah tengah */
+        ctx.fillStyle="#e5e7eb";
+        ctx.font="700 18px Inter,sans-serif";
+        ctx.textAlign="center";
+        ctx.fillText(total,chart.width/2,chart.height/2+2);
+
+        ctx.restore();
+    }
+};
+
+/* === DONUT CHART === */
+new Chart(document.getElementById("identityChart"),{
+    type:"doughnut",
+    data:{
+        labels:["Akaun Bank","Nombor Telefon","Media Sosial"],
+        datasets:[{
+            data:[{{DONUT_BANK}},{{DONUT_PHONE}},{{DONUT_SOCIAL}}],
+            backgroundColor:["#22d3ee","#a78bfa","#34d399"],
+            borderWidth:0
+        }]
+    },
+    options:{
+        cutout:"68%",
+        plugins:{
+            legend:{
+                position:"bottom",
+                labels:{
+                    color:"#94a3b8",
+                    font:{size:11},
+                    usePointStyle:true
+                }
+            }
+        }
+    },
+    plugins:[donutLabelPlugin]
+});
+</script>
+</body>
+</html>
