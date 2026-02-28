@@ -24,8 +24,8 @@ Feature requests are welcome! Please:
 
 1. **Fork the Repository**
    ```bash
-   git clone https://github.com/yourusername/scam-detection-bot.git
-   cd scam-detection-bot
+   git clone https://github.com/affifuddin-hazam/PenipuMY.git
+   cd PenipuMY
    ```
 
 2. **Create a Branch**
@@ -189,9 +189,9 @@ Before submitting your PR, make sure:
 
 ## 📞 Questions?
 
-- Open a [GitHub Issue](https://github.com/yourusername/scam-detection-bot/issues)
-- Contact via Telegram: @yourusername
-- Email: your.email@example.com
+- Open a [GitHub Issue](https://github.com/affifuddin-hazam/PenipuMY/issues)
+- Join our [Telegram Support Group](https://t.me/PenipuMYGroup)
+- Email: support@penipu.my
 
 ## 🙏 Recognition
 

@@ -116,7 +116,7 @@ Rate limiting only counts successful live API lookups. Cache hits, skipped looku
 ## Project Structure
 
 ```
-PenipuMY-Bot/
+PenipuMY/
 ├── main.py                 # Entry point — handler registration, JobQueue setup
 ├── config.py               # Environment variables, state constants, demo flags
 ├── database.py             # SQLite schema, migrations, connection helper
@@ -191,7 +191,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 
-[MIT License](LICENSE) - Copyright (c) 2025 PenipuMY
+[MIT License](LICENSE) - Copyright (c) 2022-2026 PenipuMY
 
 ---
 
