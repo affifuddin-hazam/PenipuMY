@@ -139,7 +139,6 @@ PenipuMY-Bot/
 ├── duitnow_parser.py       # DuitNow QR payload parser
 │
 ├── templates/              # HTML templates for card generation
-├── static/                 # Static assets (fonts, images)
 ├── requirements.txt        # Python dependencies
 ├── .env.example            # Environment variable template
 └── LICENSE                 # MIT License
@@ -193,3 +192,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 ## License
 
 [MIT License](LICENSE) - Copyright (c) 2025 PenipuMY
+
+---
+
+## Links
+
+- **Telegram Bot** — [@PenipuMYBot](https://t.me/PenipuMYBot)
+- **Telegram Channel** — [@PenipuMYChannel](https://t.me/PenipuMYChannel)
+- **Website** — [penipu.my](https://penipu.my)
