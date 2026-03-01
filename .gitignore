@@ -122,3 +122,7 @@ cloudflared.exe
 # Preview/test files
 preview_*.html
 static_pages_templates.txt
+
+# Dev utility scripts
+check_syntax.py
+backup.py
